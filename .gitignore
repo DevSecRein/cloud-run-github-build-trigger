@@ -1,0 +1,17 @@
+#Mac metadata
+.DS_Store
+
+#Sensitive variabes
+*sensitive*
+
+#Backend
+00 - backend.tf
+
+#local terraform files
+**/.terraform/*
+*.tfstate.*
+*.tfstate
+
+json
+*.json
+
