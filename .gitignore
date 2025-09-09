@@ -7,11 +7,11 @@
 #Backend
 00 - backend.tf
 
-#local terraform files
+#Local terraform files
 **/.terraform/*
 *.tfstate.*
 *.tfstate
+*.lock.*
 
-json
+#json
 *.json
-
