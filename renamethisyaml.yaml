@@ -1,0 +1,27 @@
+# steps:
+# # Step 1: Build the Docker image with the commit SHA as a tag and pass the environment variables
+# - name: 'gcr.io/cloud-builders/docker'
+#   args: [
+#     'build',
+#     '-t',
+#     'southamerica-east1.pkg.dev/${PROJECT_ID}/ultramarines-armageddon/be-a-man-10:${_COMMIT_SHA}',
+#     '--build-arg', 'HEADER_TEXT=Your custom header text', # Replace with your desired header text
+#     '--build-arg', 'IMAGE_URL=https://your-image-url.com/image.jpg', # Replace with your image URL
+#     '.'
+#   ]
+
+# # Step 2: Run Terraform to deploy the Cloud Run service using the new image tag
+# - name: 'hashicorp/terraform'
+#   entrypoint: 'sh'
+#   args:
+#   - '-c'
+#   - |
+#     # Initialize Terraform
+#     terraform init
+    
+#     # Apply the Terraform configuration, passing the COMMIT_SHA as a variable
+#     terraform apply -var="commit_sha=${_COMMIT_SHA}" -auto-approve
+
+# # The 'images' section tells Cloud Build to push the tagged image to Artifact Registry
+# images:
+# - 'southamerica-east1.pkg.dev/${PROJECT_ID}/ultramarines-armageddon/be-a-man-10:${_COMMIT_SHA}'

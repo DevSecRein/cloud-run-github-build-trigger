@@ -3,11 +3,6 @@ variable "project_region" {
     type    = string
 }
 
-variable "image_tag" {
-  default = "latest"
-  type = string
-}
-
 variable "artifact_repo" {
   default = "ultramarines-armageddon"
   type = string
@@ -34,6 +29,15 @@ variable "app_name" {
 }
 
 variable "github-connection-name" {
-  default = "bam10connection"
+  default = "projects/medallosunset/locations/southamerica-east1/connections/bam"
+  type = string
+}
+
+variable "github-push-name" {
+  default = "bam10push"
+  type = string
+}
+
+variable "image_tag" {
   type = string
 }
